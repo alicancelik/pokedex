@@ -1,36 +1,45 @@
 import React, {useState, useEffect, useContext} from 'react';
-import { Image, ActivityIndicator, StyleSheet , Text, View} from 'react-native';
+import { Image, ActivityIndicator, TouchableOpacity, StyleSheet , Text, View} from 'react-native';
 import { PokemonTypeImage } from '../const/typeImages'
 import { ThemeContext } from '../contexts/ThemeContext';
+import FastImage from 'react-native-fast-image';
+import * as Animatable from 'react-native-animatable';
 
-interface IPokemonItem {
+interface IPokemonItemProps {
   item: Object,
-  index: any,
+  index: Any,
+  setActivePokemon: Function,
 }
 
-export const PokemonItem: React.SFC<IPokemonItem> = ({item}) => {
+export const PokemonItem: React.SFC<IPokemonItemProps> = (props) => {
   const theme = useContext(ThemeContext);
-  console.log('girdi', item.nid);
-  const pokemonTypes = item.field_pokemon_type.split(', ');
+  const pokemonTypes = props.item.field_pokemon_type.split(', ');
   const PokemonTypeElement = pokemonTypes.map((type, index) => {
     return (
-      <Image
-        source={PokemonTypeImage[type.toLowerCase()] || PokemonTypeImage['default']}
-        placeholderStyle={{ backgroundColor: 'transparent' }}
-        PlaceholderContent={<ActivityIndicator />}
-      />
+      <Animatable.View animation="zoomIn" style={{alignSelf: 'center'}}>
+        <FastImage
+          key={type}
+          style={{ width: 50, height: 50}}
+          source={PokemonTypeImage[type.toLowerCase()] || PokemonTypeImage['default']}
+          placeholderStyle={{ backgroundColor: 'transparent' }}
+          PlaceholderContent={<ActivityIndicator />}
+        />
+      </Animatable.View>
     )
   });
   return (
-    <View style={[styles.rowContainer, {backgroundColor: theme.primaryColor}]}>
+    
+    <TouchableOpacity onPress={() => props.setActivePokemon(props.item)} style={[styles.rowContainer, {backgroundColor: theme.primaryColor}]}>
       <View style={styles.flexRow}>
-        <Image source={{uri: item.uri}} style={{width: 60, height: 60}}/>
-        <Text style={[styles.name, {color: theme.textColor}]}> {item.title_1} </Text>
+      <Animatable.View animation="zoomIn"> 
+        <Image source={{uri: props.item.uri}} style={{width: 70, height: 70}}/> 
+      </Animatable.View>
+        <Text style={[styles.name, {color: theme.textColor}]}> {props.item.title_1} </Text>
       </View>
       <View style={styles.flexRow}>
         {PokemonTypeElement}
       </View>
-    </View>
+    </TouchableOpacity>
   );
 };
 
@@ -44,6 +53,7 @@ const styles = StyleSheet.create({
   name: {
     alignSelf: 'center', 
     paddingLeft: 10,
+    fontWeight: 'bold',
   },
   flexRow: {
     flexDirection: 'row',

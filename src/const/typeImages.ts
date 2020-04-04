@@ -20,4 +20,117 @@ const PokemonTypeImage = {
   default: require('../assets/images/type-ice.png')
 }
 
-export { PokemonTypeImage }
+const Types = [
+  {
+    id: '1',
+    title: 'Böcek',
+    image: PokemonTypeImage.bug,
+    name: 'bug',
+    color: '#9BC030',
+  },
+  {
+    id: '2',
+    title: 'Karanlık',
+    image: PokemonTypeImage.dark,
+    name: 'dark',
+    color: '#636573',
+  },{
+    id: '3',
+    title: 'Ejder',
+    image: PokemonTypeImage.dragon,
+    name: 'dragon',
+    color: '#0771C7',
+  },{
+    id: '4',
+    title: 'Elektrik',
+    image: PokemonTypeImage.electric,
+    name: 'electric',
+    color: '#F3DB54',
+  },{
+    id: '5',
+    title: 'Peri',
+    image: PokemonTypeImage.fairy,
+    name: 'fairy',
+    color: '#EF96E6',
+  },{
+    id: '6',
+    title: 'Dövüşçü',
+    image: PokemonTypeImage.fighting,
+    name: 'fighting',
+    color: '#D94358',
+  },{
+    id: '7',
+    title: 'Ateş',
+    image: PokemonTypeImage.fire,
+    name: 'fire',
+    color: '#FBA24C',
+  },{
+    id: '8',
+    title: 'Uçan',
+    image: PokemonTypeImage.flying,
+    name: 'flying',
+    color: '#94ACDF',
+  },{
+    id: '9',
+    title: 'Hayalet',
+    image: PokemonTypeImage.ghost,
+    name: 'ghost',
+    color: '#5C6DB8',
+  },{
+    id: '10',
+    title: 'Çimen',
+    image: PokemonTypeImage.grass,
+    name: 'grass',
+    color: '#5DBD5F',
+  },{
+    id: '11',
+    title: 'Toprak',
+    image: PokemonTypeImage.ground,
+    name: 'ground',
+    color: '#D78353',
+  },{
+    id: '12',
+    title: 'Buz',
+    image: PokemonTypeImage.ice,
+    name: 'ice',
+    color: '#79D2C5',
+  },{
+    id: '13',
+    title: 'Normal',
+    image: PokemonTypeImage.normal,
+    name: 'normal',
+    color: '#9A9EA1',
+  },{
+    id: '14',
+    title: 'Zehir',
+    image: PokemonTypeImage.poison,
+    name: 'poison',
+    color: '#B163CC',
+  },{
+    id: '15',
+    title: 'Psişik',
+    image: PokemonTypeImage.psychic,
+    name: 'psychic',
+    color: '#F9807D',
+  },{
+    id: '16',
+    title: 'Taş',
+    image: PokemonTypeImage.rock,
+    name: 'rock',
+    color: '#CCBE8C',
+  },{
+    id: '17',
+    title: 'Çelik',
+    image: PokemonTypeImage.steel,
+    name: 'steel',
+    color: '#5593A2',
+  },{
+    id: '18',
+    title: 'Su',
+    image: PokemonTypeImage.water,
+    name: 'water',
+    color: '#58A3E0',
+  },
+];
+
+export { PokemonTypeImage, Types }
